@@ -1,0 +1,10 @@
+{
+  "ClientResponseMessages": {
+    "ClientNotFound": "client_not_found",
+    "ClientNotFoundDescription": "Client with ID: {0} was not found in database",
+    "NoClientChanged": "no_client_changed",
+    "NoClientChangedDescription": "No client changed by operation",
+    "InternalError": "internal_error",
+    "InternalErrorDescription": "An unexpected error occured during the operation: {0}"
+  }
+}

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LuizaLabs.Wishlist.App\LuizaLabs.Wishlist.App.csproj" />
+    <ProjectReference Include="..\LuizaLabs.Wishlist.Domain\LuizaLabs.Wishlist.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
