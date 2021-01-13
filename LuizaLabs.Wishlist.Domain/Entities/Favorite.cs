@@ -1,8 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using LuizaLabs.Wishlist.Domain.ViewModels;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace LuizaLabs.Wishlist.Domain.Entities
 {
@@ -15,5 +14,11 @@ namespace LuizaLabs.Wishlist.Domain.Entities
         [ForeignKey("ClientId")]
         public virtual Client Client { get; set; }
         public virtual Product Product { get; set; }
+
+        public Favorite(FavoriteViewModel favoriteViewModel)
+        {
+            ClientId = favoriteViewModel.ClientId;
+            ProductId = favoriteViewModel.ProductId;
+        }
     }
 }

@@ -3,14 +3,13 @@ using LuizaLabs.Wishlist.Domain.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LuizaLabs.Wishlist.Domain.Repositories.Implementation
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public Task Delete(T entity)
+        public Task<int> Delete(T entity)
         {
             using (var db = new PostgresContext())
             {

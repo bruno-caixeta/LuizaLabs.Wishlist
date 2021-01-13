@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LuizaLabs.Wishlist.Domain.Entities
 {
@@ -11,5 +9,6 @@ namespace LuizaLabs.Wishlist.Domain.Entities
         public string Image { get; set; }
         public decimal Price { get; set; }
         public string Brand { get; set; }
+        public decimal ReviewScore { get; set; }
     }
 }

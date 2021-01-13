@@ -3,7 +3,6 @@ using LuizaLabs.Wishlist.Domain.Entities;
 using LuizaLabs.Wishlist.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LuizaLabs.Wishlist.App.Interfaces.Services

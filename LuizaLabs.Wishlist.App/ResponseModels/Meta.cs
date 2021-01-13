@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LuizaLabs.Wishlist.App.ResponseModels
+﻿namespace LuizaLabs.Wishlist.App.ResponseModels
 {
     public class Meta
     {

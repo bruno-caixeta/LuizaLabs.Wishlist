@@ -14,6 +14,8 @@ namespace LuizaLabs.Wishlist.Domain.Database
         {
             modelBuilder.UseSerialColumns();
             modelBuilder.HasDefaultSchema("Wishlist");
+
+            modelBuilder.Entity<Favorite>().HasKey(f => new { f.ClientId, f.ProductId });
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
