@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace LuizaLabs.Wishlist.API.Controllers
 {
+    /// <summary>
+    /// Favorite Controller
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class FavoriteController : ControllerBase
@@ -23,6 +26,11 @@ namespace LuizaLabs.Wishlist.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Save product in wishlist
+        /// </summary>
+        /// <param name="favoriteViewModel"></param>
+        /// <returns>Added object</returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> InsertFavoriteAsync([FromBody] FavoriteViewModel favoriteViewModel)
@@ -35,6 +43,11 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Get client wishlist with product info
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
         [HttpGet("{clientId}")]
         [Authorize]
         public async Task<IActionResult> GetAllClientFavoritesAsync(Guid clientId)
@@ -47,6 +60,12 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Remove product from wishlist
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpDelete("{clientId}/{productId}")]
         [Authorize]
         public async Task<IActionResult> DeleteFavoriteAsync(Guid clientId, Guid productId)

@@ -5,9 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LuizaLabs.Wishlist.API.Controllers
 {
+    /// <summary>
+    /// Authentication Controller
+    /// </summary>
     [ApiController]
     public class AuthController : ControllerBase
     {
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("login")]
         public IActionResult Authenticate([FromBody] User model)

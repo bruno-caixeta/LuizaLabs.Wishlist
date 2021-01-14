@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace LuizaLabs.Wishlist.API.Controllers
 {
+    /// <summary>
+    /// Client Controller
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class ClientController : ControllerBase
@@ -23,6 +26,11 @@ namespace LuizaLabs.Wishlist.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Create new Client
+        /// </summary>
+        /// <param name="clientViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> InsertClientAsync([FromBody] ClientViewModel clientViewModel)
@@ -35,6 +43,11 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Get Client info By ClientId
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
         [HttpGet("{clientId}")]
         [Authorize]
         public async Task<IActionResult> GetClientByIdAsync(Guid clientId)
@@ -47,6 +60,10 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Get All Clients Info
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAllClientsAsync()
@@ -59,6 +76,12 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Update Client info
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="clientViewModel"></param>
+        /// <returns></returns>
         [HttpPut("{clientId}")]
         [Authorize]
         public async Task<IActionResult> UpdateClientAsync(Guid clientId, [FromBody] ClientViewModel clientViewModel)
@@ -71,6 +94,11 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Remove Client from database
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
         [HttpDelete("{clientId}")]
         [Authorize]
         public async Task<IActionResult> DeleteClientAsync(Guid clientId)
