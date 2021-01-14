@@ -2,9 +2,25 @@
   "ClientResponseMessages": {
     "ClientNotFound": "client_not_found",
     "ClientNotFoundDescription": "Client with ID: {0} was not found in database",
+    "EmailAlreadyUsed": "email_already_used",
+    "EmailAlreadyUsedDescription": "There is a client signed with this email: {0}",
     "NoClientChanged": "no_client_changed",
     "NoClientChangedDescription": "No client changed by operation",
     "InternalError": "internal_error",
     "InternalErrorDescription": "An unexpected error occured during the operation: {0}"
+  },
+  "FavoriteResponseMessages": {
+    "NoFavoriteFound": "no_favorite_found",
+    "NoFavoriteFoundDescription": "No favorite for clientId: {0} with productId: {1}",
+    "NoFavoritesFound": "no_favorites_found",
+    "NoFavoritesFoundDescription": "No favorites found for clientId: {0}",
+    "ProductDoesNotExist": "product_does_not_exist",
+    "ProductDoesNotExistDescription": "Product with Id: {0} does not exist",
+    "NoFavoriteChanged": "no_favorite_changed",
+    "NoFavoriteChangedDescription": "No favorite changed by operation",
+    "InternalError": "internal_error",
+    "InternalErrorDescription": "An unexpected error occured during the operation: {0}",
+    "ProductAlreadyInFavorites": "product_already_in_favorites",
+    "ProductAlreadyInFavoritesDescription": "The product is already in this client wishlist: {0}"
   }
 }

@@ -20,7 +20,9 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "PGSQL_CONNECTIONSTRING": "host=localhost;port=5432;database=Wishlist;user id=postgres;password=postgres;Command Timeout=60",
+        "PRODUCT_DETAIL_API": "http://challenge-api.luizalabs.com/api/product/{0}/"
       }
     }
   }

@@ -10,5 +10,9 @@
         public string ProductDoesNotExistDescription { get; set; }
         public string NoFavoriteChanged { get; set; }
         public string NoFavoriteChangedDescription { get; set; }
+        public string ProductAlreadyInFavorites { get; set; }
+        public string ProductAlreadyInFavoritesDescription { get; set; }
+        public string InternalError { get; set; }
+        public string InternalErrorDescription { get; set; }
     }
 }

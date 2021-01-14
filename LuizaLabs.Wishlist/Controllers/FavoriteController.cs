@@ -2,6 +2,7 @@
 using LuizaLabs.Wishlist.App.Interfaces.Wrappers;
 using LuizaLabs.Wishlist.Domain.Entities;
 using LuizaLabs.Wishlist.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace LuizaLabs.Wishlist.API.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class FavoriteController : ControllerBase
     {
         private readonly ILoggerWrapper<Favorite> _logger;
@@ -22,9 +24,10 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertFavoriteAsync([FromBody] FavoriteViewModel clientViewModel)
+        [Authorize]
+        public async Task<IActionResult> InsertFavoriteAsync([FromBody] FavoriteViewModel favoriteViewModel)
         {
-            var result = await _service.InsertFavoriteAsync(clientViewModel);
+            var result = await _service.InsertFavoriteAsync(favoriteViewModel);
 
             if (result.error)
                 return StatusCode((int)result.errorInfo?.FirstOrDefault().statusCode, result);
@@ -32,7 +35,8 @@ namespace LuizaLabs.Wishlist.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpGet("{clientId}")]
+        [Authorize]
         public async Task<IActionResult> GetAllClientFavoritesAsync(Guid clientId)
         {
             var result = await _service.GetAllClientFavoritesAsync(clientId);
@@ -44,6 +48,7 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpDelete("{clientId}/{productId}")]
+        [Authorize]
         public async Task<IActionResult> DeleteFavoriteAsync(Guid clientId, Guid productId)
         {
             var result = await _service.DeleteFavoriteAsync(clientId, productId);

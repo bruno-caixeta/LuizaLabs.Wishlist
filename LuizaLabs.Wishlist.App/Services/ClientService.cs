@@ -140,7 +140,20 @@ namespace LuizaLabs.Wishlist.App.Services
             }
             catch (Exception ex)
             {
-                var message = string.Format(_messages.InternalErrorDescription, ex.Message);
+                var message = "";
+
+                if (ex.HResult == -2146233088)
+                {
+                    message = string.Format(_messages.EmailAlreadyUsedDescription, ex.InnerException.Message);
+                    _logger.LogError(ex, message);
+
+                    return new ResponseModel<Client>(true, new List<ErrorInfo>
+                    {
+                        new ErrorInfo(HttpStatusCode.Conflict, _messages.EmailAlreadyUsed, message)
+                    });
+                }
+
+                message = string.Format(_messages.InternalErrorDescription, ex.Message);
                 _logger.LogError(ex, message);
 
                 return new ResponseModel<Client>(true, new List<ErrorInfo>

@@ -9,49 +9,49 @@ namespace LuizaLabs.Wishlist.Domain.Repositories.Implementation
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public Task<int> Delete(T entity)
+        public async Task<int> Delete(T entity)
         {
             using (var db = new PostgresContext())
             {
                 db.Set<T>();
                 db.Remove(entity);
-                return db.SaveChangesAsync();
+                return await db.SaveChangesAsync();
             }
         }
 
-        public Task<List<T>> GetAll()
+        public async Task<List<T>> GetAll()
         {
             using (var db = new PostgresContext())
             {
-                return db.Set<T>().ToListAsync();
+                return await db.Set<T>().ToListAsync();
             }
         }
 
-        public Task<T> GetOne(Guid id)
+        public async Task<T> GetOne(Guid id)
         {
             using (var db = new PostgresContext())
             {
-                return db.Set<T>().FindAsync(id).AsTask();
+                return await db.Set<T>().FindAsync(id);
             }
         }
 
-        public Task<int> Insert(T entity)
+        public async Task<int> Insert(T entity)
         {
             using (var db = new PostgresContext())
             {
                 db.Set<T>();
                 db.Add(entity);
-                return db.SaveChangesAsync();
+                return await db.SaveChangesAsync();
             }
         }
 
-        public Task<int> Update(T entity)
+        public async Task<int> Update(T entity)
         {
             using (var db = new PostgresContext())
             {
                 db.Set<T>();
                 db.Update(entity);
-                return db.SaveChangesAsync();
+                return await db.SaveChangesAsync();
             }
         }
     }

@@ -2,6 +2,7 @@
 using LuizaLabs.Wishlist.App.Interfaces.Wrappers;
 using LuizaLabs.Wishlist.Domain.Entities;
 using LuizaLabs.Wishlist.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> InsertClientAsync([FromBody] ClientViewModel clientViewModel)
         {
             var result = await _service.InsertClientAsync(clientViewModel);
@@ -34,6 +36,7 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpGet("{clientId}")]
+        [Authorize]
         public async Task<IActionResult> GetClientByIdAsync(Guid clientId)
         {
             var result = await _service.GetClientAsync(clientId);
@@ -45,6 +48,7 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllClientsAsync()
         {
             var result = await _service.GetAllClientsAsync();
@@ -56,6 +60,7 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpPut("{clientId}")]
+        [Authorize]
         public async Task<IActionResult> UpdateClientAsync(Guid clientId, [FromBody] ClientViewModel clientViewModel)
         {
             var result = await _service.UpdateClientAsync(clientId, clientViewModel);
@@ -67,6 +72,7 @@ namespace LuizaLabs.Wishlist.API.Controllers
         }
 
         [HttpDelete("{clientId}")]
+        [Authorize]
         public async Task<IActionResult> DeleteClientAsync(Guid clientId)
         {
             var result = await _service.DeleteClientAsync(clientId);

@@ -6,6 +6,7 @@ namespace LuizaLabs.Wishlist.Domain.Entities
 {
     public class Client
     {
+        [Key]
         public Guid ClientId { get; set; }
         public string Name { get; set; }
         [EmailAddress]
