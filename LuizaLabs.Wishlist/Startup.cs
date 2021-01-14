@@ -11,6 +11,7 @@ using LuizaLabs.Wishlist.Domain.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -104,6 +105,11 @@ namespace LuizaLabs.Wishlist.API
             {
                 endpoints.MapControllers();
             });
+
+            using (var context = new PostgresContext())
+            {
+                context.Database.Migrate();
+            }
         }
     }
 }
